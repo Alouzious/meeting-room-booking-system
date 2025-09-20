@@ -11,7 +11,7 @@ if ($_POST) {
     $end_time = $_POST['end_time'];
     $purpose = $_POST['purpose'];
     
-    // Using prepared statement as required
+    
     $stmt = $conn->prepare("INSERT INTO bookings (room_id, employee_name, booking_date, start_time, end_time, purpose) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("isssss", $room_id, $employee_name, $booking_date, $start_time, $end_time, $purpose);
     

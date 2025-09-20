@@ -4,11 +4,11 @@ include 'config/database.php';
 $message = "";
 $booking_data = null;
 
-// Get booking ID from URL
+
 if (isset($_GET['id'])) {
     $booking_id = $_GET['id'];
     
-    // Fetch existing booking data
+
     $sql = "SELECT * FROM bookings WHERE id = $booking_id";
     $result = $conn->query($sql);
     
@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
     }
 }
 
-// Handle form submission
+
 if ($_POST) {
     $booking_id = $_POST['booking_id'];
     $room_id = $_POST['room_id'];
@@ -38,7 +38,6 @@ if ($_POST) {
     if ($conn->query($sql) === TRUE) {
         $message = "<div class='success-message'>Booking updated successfully!</div>";
         
-        // Refresh booking data
         $sql = "SELECT * FROM bookings WHERE id = $booking_id";
         $result = $conn->query($sql);
         $booking_data = $result->fetch_assoc();
